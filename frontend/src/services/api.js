@@ -1,10 +1,18 @@
-export const fetchProjects = async () => {
-  try {
-    const res = await fetch("http://localhost:5000/api/projects");
-    const data = await res.json();
-    return data;
-  } catch (err) {
-    console.error("Error fetching projects:", err);
-    return [];
-  }
+const BASE_URL = "https://portfolio-fullstack-pld6.onrender.com";
+
+export const getProjects = async () => {
+  const res = await fetch(`${BASE_URL}/api/projects`);
+  return res.json();
+};
+
+export const sendContact = async (data) => {
+  const res = await fetch(`${BASE_URL}/api/contact`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+
+  return res.json();
 };
