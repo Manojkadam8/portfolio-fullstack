@@ -1,9 +1,10 @@
-const BASE_URL = "https://portfolio-fullstack-pld6.onrender.com";
+const API_URL = "https://portfolio-fullstack-pld6.onrender.com/api";
 
-export const getProjects = async () => {
-  const res = await fetch(`${BASE_URL}/api/projects`);
+export const fetchProjects = async () => {
+  const res = await fetch(`${API_URL}/projects`);
   return res.json();
 };
+
 
 export const sendContact = async (data) => {
   const res = await fetch(`${BASE_URL}/api/contact`, {
